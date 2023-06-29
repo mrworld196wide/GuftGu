@@ -1,9 +1,13 @@
-import './App.css';
-
+import Register from './pages/Register';
+import "./css/style.scss";
+import Login from './pages/Login';
+import Home from './pages/Home';
 function App() {
   return (
     <div className="App">
-      <h1>Aishwar</h1>
+      {/* <Register/> */}
+      {/* <Login/> */}
+      <Home/>
     </div>
   );
 }
