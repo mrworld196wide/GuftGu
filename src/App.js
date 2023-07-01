@@ -2,12 +2,28 @@ import Register from './pages/Register';
 import "./css/style.scss";
 import Login from './pages/Login';
 import Home from './pages/Home';
+// react router dom 
+import { BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
+import { useContext } from 'react';
+import { AuthContext } from "./context/AuthContext";
+
 function App() {
+  // yeh user ki details fetch krlegs firebase se ki voh logged in hai ki nhi  
+  const { currentUser } = useContext(AuthContext);
+  console.log(currentUser);
+  
+
   return (
     <div className="App">
-      {/* <Register/> */}
-      {/* <Login/> */}
-      <Home/>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/">
+            <Route index element={ <Home /> } />
+            <Route path="login" element={<Login />} />
+            <Route path="register" element={<Register />} />
+          </Route>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
